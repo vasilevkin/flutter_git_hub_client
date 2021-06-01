@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_git_hub_client/app/constants.dart';
 import 'package:flutter_git_hub_client/bloc/bloc.dart';
 import 'package:flutter_git_hub_client/data/repository.dart';
 import 'package:flutter_git_hub_client/models/models.dart';
@@ -24,8 +23,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           yield SearchStateSuccess(results.items);
         } catch (error) {
           yield error is SearchResultError
-              ? SearchStateError(error.message)
-              : SearchStateError(Constants.unexpectedError);
+              ? SearchStateError(error: error.message)
+              : SearchStateError();
         }
       }
     }

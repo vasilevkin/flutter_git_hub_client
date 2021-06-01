@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_git_hub_client/app/constants.dart';
 import 'package:flutter_git_hub_client/models/models.dart';
 
 abstract class SearchState extends Equatable {
@@ -31,8 +32,9 @@ class SearchStateSuccess extends SearchState {
 class SearchStateError extends SearchState {
   final String error;
 
-  const SearchStateError(this.error);
-
+  const SearchStateError({String? error})
+      : this.error = error ?? Constants.empty;
+  
   @override
   List<Object> get props => [error];
 }

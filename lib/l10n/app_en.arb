@@ -1,0 +1,18 @@
+{
+    "mainTitle": "GitHub client",
+    "@searchHint": {
+      "description": "Title on the main home screen"
+    },
+    "searchHint": "Enter something to start...",
+    "@searchHint": {
+      "description": "Hint for an empty search field"
+    },
+    "unexpectedError": "Unexpected error",
+    "@unexpectedError": {
+      "description": "General error message to show to a user"
+    },
+    "noResults": "No results",
+    "@noResults": {
+      "description": "Message shown to a user when no matches for a search"
+    }
+}

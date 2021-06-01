@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_git_hub_client/app/constants.dart';
 import 'package:flutter_git_hub_client/bloc/bloc.dart';
 import 'package:flutter_git_hub_client/ui/widgets/search_results.dart';
@@ -16,7 +17,7 @@ class SearchBody extends StatelessWidget {
       }
       if (state is SearchStateSuccess) {
         return state.items.isEmpty
-            ? Text(Constants.noResults)
+            ? Text(AppLocalizations.of(context)?.noResults ?? Constants.empty)
             : Expanded(
                 child: SearchResults(
                   items: state.items,
@@ -24,7 +25,7 @@ class SearchBody extends StatelessWidget {
               );
       }
 
-      return Text(Constants.searchHint);
+      return Text(AppLocalizations.of(context)?.searchHint ?? Constants.empty);
     });
   }
 }
