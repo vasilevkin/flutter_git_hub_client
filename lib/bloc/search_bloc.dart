@@ -6,9 +6,9 @@ import 'package:flutter_git_hub_client/data/repository.dart';
 import 'package:flutter_git_hub_client/models/models.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  final GitHubRepository gitHubRepository;
+  final Repository repository;
 
-  SearchBloc({required this.gitHubRepository}) : super(SearchStateEmpty());
+  SearchBloc({required this.repository}) : super(SearchStateEmpty());
 
   @override
   Stream<SearchState> mapEventToState(SearchEvent event) async* {
@@ -19,7 +19,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       } else {
         yield SearchStateLoading();
         try {
-          final results = await gitHubRepository.search(searchText);
+          final results = await repository.search(searchText);
           yield SearchStateSuccess(results.items);
         } catch (error) {
           yield error is SearchResultError

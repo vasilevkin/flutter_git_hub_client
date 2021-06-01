@@ -8,9 +8,9 @@ import 'package:flutter_git_hub_client/ui/screens/home_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class GitHubClientApp extends StatelessWidget {
-  final GitHubRepository githubRepository;
+  final Repository repository;
 
-  GitHubClientApp({required this.githubRepository});
+  GitHubClientApp({required this.repository});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class GitHubClientApp extends StatelessWidget {
         const Locale('ru', ''),
       ],
       home: BlocProvider(
-        create: (_) => SearchBloc(gitHubRepository: githubRepository),
+        create: (_) => SearchBloc(repository: repository),
         child: HomeScreen(),
       ),
     );

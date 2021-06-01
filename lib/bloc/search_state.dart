@@ -34,7 +34,7 @@ class SearchStateError extends SearchState {
 
   const SearchStateError({String? error})
       : this.error = error ?? Constants.empty;
-  
+
   @override
   List<Object> get props => [error];
 }
